@@ -1,0 +1,174 @@
+<h1 id="threat-model-sample">Threat Model Sample</h1>
+<hr />
+<h2 id="system-description">System Description</h2>
+<p>DFD for storytelling exercise</p>
+<h2 id="dataflow-diagram">Dataflow Diagram</h2>
+<div class="figure">
+<img src="dfd.png" alt="Level 0 DFD" />
+<p class="caption">Level 0 DFD</p>
+</div>
+<h2 id="sequence-diagram">Sequence Diagram</h2>
+<div class="figure">
+<img src="seq.png" alt="Level 0 SEQ" />
+<p class="caption">Level 0 SEQ</p>
+</div>
+<h2 id="dataflows">Dataflows</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>From</th>
+<th>To</th>
+<th>Data</th>
+<th>Protocol</th>
+<th>Port</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>User enters search</td>
+<td>User</td>
+<td>api_search</td>
+<td></td>
+<td></td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>Search critirea</td>
+<td>api_search</td>
+<td>Restaurants</td>
+<td></td>
+<td></td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>Results</td>
+<td>Restaurants</td>
+<td>api_search</td>
+<td></td>
+<td></td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>Results</td>
+<td>api_search</td>
+<td>User</td>
+<td></td>
+<td></td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>User enters reservation</td>
+<td>User</td>
+<td>api_reservation</td>
+<td></td>
+<td></td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>Check availability</td>
+<td>api_reservation</td>
+<td>Reservations</td>
+<td></td>
+<td></td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>Returns availability</td>
+<td>Reservations</td>
+<td>api_reservation</td>
+<td></td>
+<td></td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>Reservation status</td>
+<td>api_reservation</td>
+<td>User</td>
+<td></td>
+<td></td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>User gives rating</td>
+<td>User</td>
+<td>api_rating</td>
+<td></td>
+<td></td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>Rating</td>
+<td>api_rating</td>
+<td>Ratings</td>
+<td></td>
+<td></td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>New rating</td>
+<td>Ratings</td>
+<td>api_rating</td>
+<td></td>
+<td></td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>Thank you</td>
+<td>api_rating</td>
+<td>User</td>
+<td></td>
+<td></td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="threatlist">Threatlist</h2>
+<ul>
+<li>Server not hardened on element &quot;api_search&quot;</li>
+<li>Cross Site Scripting on element &quot;api_search&quot;</li>
+<li>Weakness in SSO Authorization on element &quot;api_search&quot;</li>
+<li>Elevation Using Impersonation on element &quot;api_search&quot;</li>
+<li>Cross Site Request Forgery on element &quot;api_search&quot;</li>
+<li>Potential Excessive Resource Consumption on element &quot;api_search&quot;</li>
+<li>Server not hardened on element &quot;api_reservation&quot;</li>
+<li>Cross Site Scripting on element &quot;api_reservation&quot;</li>
+<li>Weakness in SSO Authorization on element &quot;api_reservation&quot;</li>
+<li>Elevation Using Impersonation on element &quot;api_reservation&quot;</li>
+<li>Cross Site Request Forgery on element &quot;api_reservation&quot;</li>
+<li>Potential Excessive Resource Consumption on element &quot;api_reservation&quot;</li>
+<li>Server not hardened on element &quot;api_rating&quot;</li>
+<li>Cross Site Scripting on element &quot;api_rating&quot;</li>
+<li>Weakness in SSO Authorization on element &quot;api_rating&quot;</li>
+<li>Elevation Using Impersonation on element &quot;api_rating&quot;</li>
+<li>Cross Site Request Forgery on element &quot;api_rating&quot;</li>
+<li>Potential Excessive Resource Consumption on element &quot;api_rating&quot;</li>
+<li>Authenticated Data Flow Compromised on element &quot;Restaurants&quot;</li>
+<li>Potential SQL Injection Vulnerability on element &quot;Restaurants&quot;</li>
+<li>Data Flow Is Potentially Interrupted on element &quot;Restaurants&quot;</li>
+<li>Data Store Inaccessible on element &quot;Restaurants&quot;</li>
+<li>Authorization Bypass on element &quot;Restaurants&quot;</li>
+<li>Weak Access Control for a Resource on element &quot;Restaurants&quot;</li>
+<li>Dataflow not authenticated on element &quot;User enters search&quot;</li>
+<li>Dataflow not authenticated on element &quot;Search critirea&quot;</li>
+<li>GDPR - Dataflow not encrypted on element &quot;Search critirea&quot;</li>
+<li>Dataflow not authenticated on element &quot;Results&quot;</li>
+<li>GDPR - Dataflow not encrypted on element &quot;Results&quot;</li>
+<li>Dataflow not authenticated on element &quot;Results&quot;</li>
+<li>GDPR - Dataflow not encrypted on element &quot;Results&quot;</li>
+<li>Dataflow not authenticated on element &quot;User enters reservation&quot;</li>
+<li>Dataflow not authenticated on element &quot;Check availability&quot;</li>
+<li>GDPR - Dataflow not encrypted on element &quot;Check availability&quot;</li>
+<li>Dataflow not authenticated on element &quot;Returns availability&quot;</li>
+<li>GDPR - Dataflow not encrypted on element &quot;Returns availability&quot;</li>
+<li>Dataflow not authenticated on element &quot;Reservation status&quot;</li>
+<li>GDPR - Dataflow not encrypted on element &quot;Reservation status&quot;</li>
+<li>Dataflow not authenticated on element &quot;User gives rating&quot;</li>
+<li>GDPR - Dataflow not encrypted on element &quot;User gives rating&quot;</li>
+<li>Dataflow not authenticated on element &quot;Rating&quot;</li>
+<li>GDPR - Dataflow not encrypted on element &quot;Rating&quot;</li>
+<li>Dataflow not authenticated on element &quot;New rating&quot;</li>
+<li>GDPR - Dataflow not encrypted on element &quot;New rating&quot;</li>
+<li>Dataflow not authenticated on element &quot;Thank you&quot;</li>
+<li>GDPR - Dataflow not encrypted on element &quot;Thank you&quot;</li>
+</ul>
